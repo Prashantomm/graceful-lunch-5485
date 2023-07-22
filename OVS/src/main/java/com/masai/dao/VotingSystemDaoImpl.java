@@ -19,6 +19,7 @@ import com.masai.utility.DBConnection;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
+import jakarta.persistence.TypedQuery;
 
 public class VotingSystemDaoImpl implements VotingSystemDao {
 	@Override
@@ -189,24 +190,48 @@ public class VotingSystemDaoImpl implements VotingSystemDao {
 	
 		return false;
 	}
-
 	@Override
-	public List<Candidate> viewCandidates()
-			throws AccessForbidden, DuplicateEntry, NoRecordFound, UnauthorizedAccess, SomeThingWentWrong, WrongInput {
-		EntityManager em = DBConnection.getEM();
-		List<Candidate> list = null;
-		try {
-			list = em.createQuery("SELECT c FROM Candidate c").getResultList();
-			if (list == null) {
-				em.close();
-				throw new NoRecordFound("No record Found");
-			}
-			em.close();
-			return list;
-		} catch (PersistenceException e) {
-			e.printStackTrace();
-		}
-		return list;
+	public List<Candidate> viewCandidates() throws NoRecordFound, SomeThingWentWrong {
+	    EntityManager em = DBConnection.getEM();
+	    List<Candidate> list = null;
+	    
+	    try {
+	        TypedQuery<Candidate> query = em.createQuery("SELECT c FROM Candidate c", Candidate.class);
+	        list = query.getResultList();
+	        
+	        if (list.isEmpty()) {
+	            throw new NoRecordFound("No records found");
+	        }
+	        
+	       
+	    } catch (PersistenceException e) {
+	        // Log or handle the exception appropriately
+	        e.printStackTrace();
+	        throw new SomeThingWentWrong("Something went wrong while fetching candidates");
+	    } 
+	        
+	   
+	return list;
 	}
+
+//	@Override
+//	public List<Candidate> viewCandidates()
+//			throws AccessForbidden, DuplicateEntry, NoRecordFound, UnauthorizedAccess, SomeThingWentWrong, WrongInput {
+//		EntityManager em = DBConnection.getEM();
+//		List<Candidate> list = null;
+//		try {
+//			list = em.createQuery("SELECT c FROM Candidate c").getResultList();
+//			if (list == null) {
+//				em.close();
+//				throw new NoRecordFound("No record Found");
+//			}
+//		
+//			em.close();
+//			return list;
+//		} catch (PersistenceException e) {
+//			e.printStackTrace();
+//		}
+//		return list;
+//	}
 
 }

@@ -68,7 +68,7 @@ public class MainUI {
 		int choice;
 		
 		do {
-			System.out.println(YELLOW+"╔══════════════════════════════╗");
+			System.out.println(GREEN+"╔══════════════════════════════╗");
 			System.out.println("║        Main Menu             ║");
 			System.out.println("╚══════════════════════════════╝");
 			System.out.println("╔══════════════════════════════╗");
@@ -145,7 +145,7 @@ public class MainUI {
 	private static void voterMenu(Voter voter) {
 		int choice;
 		do {
-			System.out.println(YELLOW+"╔══════════════════════════════╗");
+			System.out.println(GREEN+"╔══════════════════════════════╗");
 			System.out.println("║        Voter Menu            ║");
 			System.out.println("╚══════════════════════════════╝");
 			System.out.println("╔══════════════════════════════╗");
@@ -269,7 +269,7 @@ public class MainUI {
 		int id = getIntInput();
 		
 		try {
-			System.out.println(onlineVotingImplements.deleteElection(id) ? "Deleted " : "");
+			System.out.println(onlineVotingImplements.deleteElection(id) ?RED+ "Election Deleted Successfully" : "");
 		} catch (AccessForbidden | DuplicateEntry | NoRecordFound | UnauthorizedAccess | SomeThingWentWrong
 				| WrongInput e) {
 		System.out.println(e.getMessage());
@@ -295,7 +295,7 @@ public class MainUI {
 			    String profile = sc.nextLine();
 			    System.out.println("Enter Agenda");
 			    String agenda = sc.nextLine();
-			    System.out.println("Candidate "+i+" Details Colletion Done");
+			    System.out.println(GREEN+"Candidate "+i+" Details Added Successfully!");
 			    idList.add(new Candidate(firstName, lastName, profile, agenda));
 			}
 			
@@ -310,7 +310,7 @@ public class MainUI {
 		    Election election = new Election(id,electionNameString, startDate, endDate);
 		    
 		    try {
-				System.out.println(onlineVotingImplements.updateElection(election, idList) ? "Election Updated" : "");
+				System.out.println(onlineVotingImplements.updateElection(election, idList) ?GREEN+ "Election Updated" : "");
 			} catch (AccessForbidden | DuplicateEntry | NoRecordFound | UnauthorizedAccess | SomeThingWentWrong
 					| WrongInput e) {
 				System.out.println(e.getMessage());
@@ -357,7 +357,7 @@ public class MainUI {
 	    Election election = new Election(electionNameString, startDate, endDate);
 	    
 	    try {
-			System.out.println(onlineVotingImplements.addElection(election, idList) ? "Election Added" : "");
+			System.out.println(onlineVotingImplements.addElection(election, idList) ? GREEN+"Election Added" : "");
 		} catch (AccessForbidden | DuplicateEntry | NoRecordFound | UnauthorizedAccess | SomeThingWentWrong
 				| WrongInput e) {
 			System.out.println(e.getMessage());
