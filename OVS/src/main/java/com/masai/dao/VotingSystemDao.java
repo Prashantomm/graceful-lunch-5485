@@ -17,6 +17,7 @@ import com.masai.exceptions.UserMustBe18orAbove;
 import com.masai.exceptions.WrongInput;
 
 public interface VotingSystemDao {
+	Candidate addCandidate(Candidate candidate) throws SomeThingWentWrong;
 	boolean registerVoter(Voter voter) throws AccessForbidden , InvalidCredentials  ,NoRecordFound, UnauthorizedAccess, UserMustBe18orAbove , SomeThingWentWrong , DuplicateEntry, AccessForbidden, InvalidCredentials, NoRecordFound, UnauthorizedAccess, UserMustBe18orAbove, SomeThingWentWrong, DuplicateEntry;
     Voter loginVoter(String email, String password) throws AccessForbidden , InvalidCredentials ,MaximumLoginAttemptReached ,NoRecordFound, UnauthorizedAccess ,SomeThingWentWrong;
     boolean castVote(Vote vote) throws AccessForbidden ,DuplicateEntry , NoRecordFound, UnauthorizedAccess , SomeThingWentWrong , WrongInput;

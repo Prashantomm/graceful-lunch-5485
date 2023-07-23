@@ -2,6 +2,7 @@ package com.masai.service;
 
 import java.util.List;
 
+import com.masai.dao.VotingSystemDao;
 import com.masai.dao.VotingSystemDaoImpl;
 import com.masai.entity.Candidate;
 import com.masai.entity.Election;
@@ -63,7 +64,7 @@ public class OnlineVotingImpl implements OnlineVotingServices{
 		
 		if (adminLoginCounter > 3) {
 			throw new MaximumLoginAttemptReached("You have Atempted more then 3 time ");
-		}else if (adminLoginCounter < 4 &&  username.equals("admin") && password.equals("admin")) {
+		}else if (adminLoginCounter < 4 &&  username.equals("admin") && password.equals("12345")) {
 			adminLoginCounter = 0;
 			return true;
 		}else {
@@ -127,6 +128,13 @@ public class OnlineVotingImpl implements OnlineVotingServices{
 	public List<Candidate> viewCandidates()
 			throws AccessForbidden, DuplicateEntry, NoRecordFound, UnauthorizedAccess, SomeThingWentWrong, WrongInput {
 		return votingSystemImplements.viewCandidates();
+	}
+
+	@Override
+	public Candidate addCandidate(Candidate candidate) throws SomeThingWentWrong {
+		// TODO Auto-generated method stub
+	VotingSystemDao vsd = new VotingSystemDaoImpl();
+		return vsd.addCandidate(candidate);
 	}
 
 }
