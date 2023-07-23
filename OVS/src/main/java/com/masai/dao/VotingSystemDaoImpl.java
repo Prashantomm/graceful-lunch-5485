@@ -18,6 +18,7 @@ import com.masai.exceptions.WrongInput;
 import com.masai.utility.DBConnection;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
 
@@ -212,6 +213,27 @@ public class VotingSystemDaoImpl implements VotingSystemDao {
 	        
 	   
 	return list;
+	}
+
+	@Override
+	public Candidate addCandidate(Candidate candidate) throws SomeThingWentWrong {
+		EntityManager em=null;
+		EntityTransaction et = null;
+		try {
+			em=DBConnection.getEM();
+			et = em.getTransaction();
+			et.begin();
+			em.persist(candidate);
+			et.commit();
+			return candidate;
+		} catch (Exception e) {
+			et.rollback();
+			throw new SomeThingWentWrong("Something going wrong while adding the candidate details");
+			// TODO: handle exception
+		}finally {
+			em.close();
+		}
+		
 	}
 
 //	@Override

@@ -20,6 +20,7 @@ import com.masai.exceptions.UnauthorizedAccess;
 import com.masai.exceptions.UserMustBe18orAbove;
 import com.masai.exceptions.WrongInput;
 import com.masai.service.OnlineVotingImpl;
+import com.masai.service.OnlineVotingServices;
 
 public class MainUI {
 	
@@ -35,6 +36,9 @@ public class MainUI {
 	public static final String PURPLE = "\u001B[35m";
 	public static final String CYAN = "\u001B[36m";
 	public static final String WHITE = "\u001B[37m";
+	public static final String TEXT_BACKGROUND = "\033[0;7m";
+	 public static final String RED_BACKGROUND = "\033[41m"; // RED
+	 public static final String GREEN_BACKGROUND = "\033[42m"; // GREEN
 	static OnlineVotingImpl onlineVotingImplements = new OnlineVotingImpl();
 	public static Scanner sc = new Scanner(System.in);
 	// Done
@@ -44,7 +48,8 @@ public class MainUI {
 
 	        while (!validInput) {
 	            try {
-	                System.out.print(CYAN+" Enter an "+RED+"integer"+RESET+" "+CYAN+"Type: "+RESET);
+	               // System.out.print(CYAN+" Enter an "+RED+"integer"+RESET+" "+CYAN+"Type: "+RESET);
+	            	System.out.print(YELLOW+" Please Enter Your Choice: "+RESET);
 	                input = sc.nextInt();
 	                validInput = true;
 	            } catch (InputMismatchException e) {
@@ -57,7 +62,7 @@ public class MainUI {
 	}
 	// Done
 	public static String getStringInput() {
-		System.out.print(CYAN+" Enter an "+PURPLE+"String"+RESET+" "+PURPLE+"Type: "+RESET);
+		//System.out.print(CYAN+" Enter an "+PURPLE+"String"+RESET+" "+PURPLE+"Type: "+RESET);
 		String next = sc.next();
 		System.out.println();
 		return next;
@@ -221,16 +226,20 @@ public class MainUI {
 	}
 	// Done
 	private static void adminUI( ) {
-		System.out.println(GREEN+"╔══════════════════════════════╗");
-		System.out.println("║        Enter Username        ║");
-		System.out.println("╚══════════════════════════════╝"+RESET);
+//		System.out.println(GREEN+"╔══════════════════════════════╗");
+		System.out.print(GREEN+"Enter Username: "+RESET);
+//		System.out.println("╚══════════════════════════════╝"+RESET);
 		String usernameString = getStringInput();
-		System.out.println(GREEN+"╔══════════════════════════════╗");
-		System.out.println("║        Enter Password        ║");
-		System.out.println("╚══════════════════════════════╝"+RESET);
+//		System.out.println(GREEN+"╔══════════════════════════════╗");
+		System.out.print(GREEN+"Enter Password: "+RESET);
+//		System.out.println("╚══════════════════════════════╝"+RESET);
 		String	passwordString = getStringInput();
+		System.out.println(GREEN_BACKGROUND+"Welcome back Admin,Good to see you again!"+ RESET );
+		
 		try {
 			if (onlineVotingImplements.loginAdministrator(usernameString, passwordString)) adminMenuUI();
+			
+			
 		} catch (AccessForbidden | InvalidCredentials | MaximumLoginAttemptReached | NoRecordFound | UnauthorizedAccess
 				| SomeThingWentWrong | WrongInput e) {
 				System.out.println(e.getMessage());
@@ -342,8 +351,18 @@ public class MainUI {
 		    String profile = sc.nextLine();
 		    System.out.println("Enter Agenda");
 		    String agenda = sc.nextLine();
-		    System.out.println("Candidate "+i+" Details Colletion Done");
-		    idList.add(new Candidate(firstName, lastName, profile, agenda));
+		   // System.out.println("Candidate "+i+" Details Added");
+		    Candidate candidate = new Candidate(firstName, lastName, profile, agenda);
+		    idList.add(candidate);
+		    OnlineVotingServices ovs = new OnlineVotingImpl();
+		    try {
+				System.out.println(onlineVotingImplements.addCandidate(candidate) != null ? GREEN+"Candidate Added" : "");
+			} catch (SomeThingWentWrong e) {
+				System.out.println(e.getMessage());
+
+			}
+//		    idList.add(new Candidate(firstName, lastName, profile, agenda));
+		    
 		}
 		
 		System.out.println("Candidate are Selected");
