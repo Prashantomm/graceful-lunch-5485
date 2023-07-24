@@ -19,7 +19,7 @@
 - Admin can provide the candidate details
 - Voter can register by giving all the details
 - Voter can login his username and password
-- 
+- Admin can update the candidate and delete the candidate
 # Technology used 
 
 - Java
@@ -47,19 +47,17 @@ Admin can login by using username (admin) and password (12345)
 
 
 
-## *Customer Login* 
-Customer can signup first if not registered earlier
+## *Voter Login* 
+Voter can signup first if not registered earlier
 </br>
-Customer can login with earlier provided username and password
+Voter can login with earlier provided Email and password
 </br>
-<img src="" width="400" height="400">
-
+<img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/8b0691f1-7f81-441c-9c30-134e87431e91" width="400" height="400">
 
 ## *Backend Functionality* 
-User can go back to the previous option
+Admin can see the candidate list
 </br>
-<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/6a071cf7-b035-4585-ac8b-1d82911d42f0" width="400" height="400">
-
+<img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/f5074ad1-2493-4ad0-ade5-074ff38a25bc" width="400" height="400">
 
 # Feedback
 > Valuable feedback will be appreciated.
