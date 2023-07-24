@@ -38,11 +38,6 @@
 - Enjoyed the process of learning and creating the application.
 
 # Overview of my work
-## *ER Diagram* 
-
-<img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/2109d4f2-1eba-473c-991d-c0232168daa8" width="500" height="300">
-
-
 
 ## *Admin Login* 
 Admin can login by using username (admin) and password (12345)
