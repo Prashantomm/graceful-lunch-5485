@@ -4,9 +4,9 @@
 
 > The Online Voting System is a web-based application designed to facilitate secure and efficient voting processes for various elections, such as government elections, organizational elections, or opinion polls. The system aims to provide a convenient and reliable platform for voters to cast their votes remotely, ensuring transparency, accuracy, and integrity of the voting process.
 
-> Car booking system is a console based application.
+> Online voting system is a console based application.
 
-> Build Car booking system application during the construct week at [Masai School](https://masaischool.com/). Completed the project within five days.
+> Build Online voting system application during the construct week at [Masai School](https://masaischool.com/). Completed the project within five days.
 
 
 
