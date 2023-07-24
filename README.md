@@ -14,18 +14,16 @@
 
 # Features
 
-- Administrator can login his username and password
-- Administrator can provide details like Car Model, Car Name, Car Type –SUV/Sedan/Minivan, Avialiable time and date 
-- Administrator can provide the confirmation of the bookin to the Customer
-- Customer can register by giving all the details
-- Customer can login his username and password
-- Customer can book car by selecting car name
-- Customer can cancel booking
-
+- Admin can login his username and password(admin,12345)
+- Admin can provide details like how many candidate he/she want to add by providing details
+- Admin can provide the candidate details
+- Voter can register by giving all the details
+- Voter can login his username and password
+- 
 # Technology used 
 
 - Java
-- MySQL
+- Hibernate
 - JDBC
 - spring tool suite eclipse
 - Git & GitHub
@@ -38,13 +36,14 @@
 # Overview of my work
 ## *ER Diagram* 
 
-<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/f315f134-021e-4a82-8ff7-28bfe9f2134e" width="300" height="300">
+<img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/2109d4f2-1eba-473c-991d-c0232168daa8" width="500" height="300">
+
 
 
 ## *Admin Login* 
 Admin can login by using username (admin) and password (admin)
 </br>
-<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/b5612703-0711-4d83-b4b2-3e1c52660d4c" width="400" height="400">
+<img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/89543d87-7b57-4012-9b35-8ce4506bf210" width="400" height="400">
 
 
 
@@ -53,8 +52,7 @@ Customer can signup first if not registered earlier
 </br>
 Customer can login with earlier provided username and password
 </br>
-<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/74fe5802-6109-491b-ad61-e12f9031d457" width="400" height="400">
-
+<img src="" width="400" height="400">
 
 
 ## *Backend Functionality* 
