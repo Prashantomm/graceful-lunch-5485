@@ -1,5 +1,9 @@
 # Project Code: graceful-lunch-5485
 
+
+
+<img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/cb98e11f-0979-4075-978c-ecbc3df4efc2" width="300" height="300">
+
 # Online Voting System
 
 > The Online Voting System is a web-based application designed to facilitate secure and efficient voting processes for various elections, such as government elections, organizational elections, or opinion polls. The system aims to provide a convenient and reliable platform for voters to cast their votes remotely, ensuring transparency, accuracy, and integrity of the voting process.
