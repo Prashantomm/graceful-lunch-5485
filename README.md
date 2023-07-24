@@ -41,7 +41,7 @@
 
 
 ## *Admin Login* 
-Admin can login by using username (admin) and password (admin)
+Admin can login by using username (admin) and password (12345)
 </br>
 <img src="https://github.com/Prashantomm/graceful-lunch-5485/assets/112774297/89543d87-7b57-4012-9b35-8ce4506bf210" width="400" height="400">
 
